@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.nama }} - Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">{{ data.nama }}</div>
+        <!-- Di bagian nav -->
+<ul class="nav-links">
+    <li><a href="{{ url_for('home') }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+    <li><a href="{{ url_for('about') }}" class="{% if request.path == '/about' %}active{% endif %}">About</a></li>
+    <li><a href="{{ url_for('contact') }}" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a></li>
+</ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>HI, I'M {{ data.nama.upper() }}</h1>
+            <p>An {{ data.profesi|lower }} at {{ data.universitas }}</p>
+        </section>
+    </main>
+</body>
+</html>

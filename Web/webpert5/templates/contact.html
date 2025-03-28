@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - {{ data.nama }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">{{ data.nama }}</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-container">
+        <section class="contact-section">
+            <h1>{{ data.contact.title }}</h1>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>GitHub</h3>
+                    <a href="{{ data.contact.github.link }}" target="_blank" class="contact-link">Visit My GitHub</a>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>Instagram</h3>
+                    <a href="{{ data.contact.instagram.link }}" target="_blank" class="contact-link">Follow Me</a>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <h3>Email</h3>
+                    <a href="mailto:{{ data.contact.email.address }}" class="contact-link">{{ data.contact.email.address }}</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
